@@ -11,19 +11,17 @@
     }
   },
   "env": {
-    "NEXT_PUBLIC_API_URL": "@next_public_api_url",
     "NODE_ENV": "production"
   },
   "build": {
     "env": {
-      "NEXT_PUBLIC_API_URL": "@next_public_api_url",
       "NODE_ENV": "production"
     }
   },
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "$NEXT_PUBLIC_API_URL/api/$1"
+      "destination": "$NEXT_PUBLIC_BACKEND_URL/$1"
     }
   ],
   "headers": [
