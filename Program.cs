@@ -7,14 +7,27 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure Kestrel to use HTTPS
+// Configure Kestrel - Railway handles HTTPS at the load balancer level
 builder.WebHost.ConfigureKestrel(serverOptions =>
 {
-    serverOptions.ListenLocalhost(5000); // HTTP
-    serverOptions.ListenLocalhost(5001, listenOptions =>
+    // In production (Railway), only use HTTP as Railway handles HTTPS termination
+    var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+    var isDevelopment = builder.Environment.IsDevelopment();
+    
+    if (isDevelopment)
     {
-        listenOptions.UseHttps(); // HTTPS with development certificate
-    });
+        // Development: Use both HTTP and HTTPS
+        serverOptions.ListenLocalhost(5000); // HTTP
+        serverOptions.ListenLocalhost(5001, listenOptions =>
+        {
+            listenOptions.UseHttps(); // HTTPS with development certificate
+        });
+    }
+    else
+    {
+        // Production (Railway): Only HTTP, Railway handles HTTPS termination
+        serverOptions.ListenAnyIP(int.Parse(port));
+    }
 });
 
 // Add logging
