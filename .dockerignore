@@ -1,0 +1,46 @@
+# Docker ignore file for backend
+**/bin/
+**/obj/
+**/out/
+**/.vs/
+**/.vscode/
+*.user
+*.suo
+*.cache
+.DS_Store
+*.swp
+*.swo
+*~
+*.log
+*.tmp
+
+# Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/dist/
+frontend/.env.local
+frontend/.env.production.local
+frontend/.env.development.local
+
+# Test files
+*.ps1
+test-*.ps1
+setup-*.ps1
+run-*.ps1
+TESTING*.md
+IMPLEMENTATION*.md
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+!README.md
+
+# Misc
+*.bak
+*.orig
+Thumbs.db
