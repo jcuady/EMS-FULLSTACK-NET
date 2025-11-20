@@ -6,7 +6,7 @@ import { CheckCircle, XCircle, Loader2 } from "lucide-react"
 
 export function ApiStatus() {
   const [status, setStatus] = useState<'checking' | 'connected' | 'disconnected'>('checking')
-  const [apiUrl] = useState(process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api')
+  const [apiUrl] = useState(process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000/api')
 
   useEffect(() => {
     checkApiStatus()

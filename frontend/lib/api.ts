@@ -1,5 +1,5 @@
 // API Client for .NET Backend
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000/api';
 
 export interface ApiResponse<T> {
   success: boolean;
