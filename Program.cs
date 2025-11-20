@@ -126,7 +126,8 @@ builder.Services.AddCors(options =>
                 "https://ems-fullstack-net.vercel.app")
               .AllowAnyMethod()
               .AllowAnyHeader()
-              .AllowCredentials();
+              .AllowCredentials()
+              .SetPreflightMaxAge(TimeSpan.FromMinutes(10));
     });
 });
 
