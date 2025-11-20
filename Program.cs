@@ -122,7 +122,8 @@ builder.Services.AddCors(options =>
                 "http://localhost:3002",
                 "https://localhost:3000",
                 "https://localhost:3001",
-                "https://localhost:3002")
+                "https://localhost:3002",
+                "https://ems-fullstack-net.vercel.app")
               .AllowAnyMethod()
               .AllowAnyHeader()
               .AllowCredentials();
